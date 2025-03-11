@@ -104,25 +104,34 @@ def extract_markdown_links(text):
     return re.findall(r"(?<!!)\[([^\[\]]*)\]\(([^\(\)]*)\)", text)
 
 
-def split_nodes_links(old_nodes):
+def split_nodes_link(old_nodes):
     if old_nodes == []:
         return []
     new_nodes = []
+
     for old_node in old_nodes:
-        links = extract_markdown_links(old_nodes)
+        links = extract_markdown_links(old_node.text)
+
         if not links:
             new_nodes.append(old_node)
             continue
+
         remaining_text = old_node.text
+
         for link_alt, link_url in links:
             link_markdown = f"[{link_alt}]({link_url})"
             parts = remaining_text.split(link_markdown, 1)
+
             if parts[0]:
                 new_nodes.append(TextNode(parts[0], TextType.TEXT))
+
             new_nodes.append(TextNode(link_alt, TextType.LINK, link_url))
+
             remaining_text = parts[1] if len(parts) > 1 else ""
+
         if remaining_text:
             new_nodes.append(TextNode(remaining_text, TextType.TEXT))
+
     return new_nodes
 
 """
