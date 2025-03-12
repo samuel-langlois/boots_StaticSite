@@ -151,4 +151,19 @@ def text_to_textnodes(text):
     nodes = split_nodes_image(nodes)
     nodes = split_nodes_link(nodes)
 
+
     return nodes
+def markdown_to_blocks(markdown):
+
+    """
+    Splits the markdown text into list of Text lines.
+    :param markdown: The markdown text to be split
+    :return: A list of lines of texts
+    """
+    blocks = []
+    lines = markdown.split("\n\n")
+    for line in lines:
+        cur = line.strip()
+        if cur != "":
+            blocks.append(cur)
+    return blocks
