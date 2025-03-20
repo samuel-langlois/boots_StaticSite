@@ -1,4 +1,4 @@
-from textnode import TextNode, TextType, split_nodes_images
+from textnode import TextNode, TextType, split_nodes_image
 
 def main():
     node = TextNode("this is stuff and things", TextType.BOLD, "https://www.boot.dev")
@@ -7,7 +7,7 @@ def main():
         "This is text with an ![image](https://i.imgur.com/zjjcJKZ.png) and another ![second image](https://i.imgur.com/3elNhQu.png)",
         TextType.TEXT,
     )
-    print(split_nodes_images(node2))
+    print(split_nodes_image(node2))
 
 if __name__ == "__main__":
     main()
