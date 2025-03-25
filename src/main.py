@@ -1,13 +1,12 @@
-from textnode import TextNode, TextType, split_nodes_image
+from generatepub import generate_page, generate_public
+import os
 
 def main():
-    node = TextNode("this is stuff and things", TextType.BOLD, "https://www.boot.dev")
-    print(node)
-    node2 = TextNode(
-        "This is text with an ![image](https://i.imgur.com/zjjcJKZ.png) and another ![second image](https://i.imgur.com/3elNhQu.png)",
-        TextType.TEXT,
-    )
-    print(split_nodes_image(node2))
+    generate_public(backup_dir=False)
+    if os.path.exists("content/index.md"):
+        generate_page("content/index.md", "template.html", "public/index.html")
+    else:
+        print("File not found: content/index.md")
 
 if __name__ == "__main__":
     main()
