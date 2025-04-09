@@ -41,7 +41,7 @@ def markdown_to_html_node(text):
         # Blocktype HEADING
         elif block_type == BlockType.HEADING:
             level = block.count("#")
-            block = block.replace("#", "")
+            block = block.replace("#", "").strip()
             htmlnodes = text_to_children(block)
             htmlnode = HTMLNode(f"h{level}", None, htmlnodes, None)
             block_nodes.append(htmlnode)
@@ -57,8 +57,12 @@ def markdown_to_html_node(text):
 
         # Blocktype QUOTE
         elif block_type == BlockType.QUOTE:
-            block = block.replace(">", "").strip()
-            htmlnodes = text_to_children(block)
+            # Split into quote lines, remove '> ' from each
+            lines = block.split("\n")
+            stripped_lines = [line.lstrip("> ").strip() for line in lines if line.startswith(">")]
+            # Join lines while preserving line breaks
+            content = "\n".join(stripped_lines)
+            htmlnodes = text_to_children(content)
             htmlnode = HTMLNode("blockquote", None, htmlnodes, None)
             block_nodes.append(htmlnode)
 
@@ -253,6 +257,6 @@ def extract_title(markdown):
     lines = markdown.split("\n")
     for line in lines:
         if line.startswith("# "):
-            return line.replace("#", "").strip()
+            return line[2:].strip()
     raise ValueError("No title found in the markdown text.")
 

@@ -59,7 +59,7 @@ def generate_page(from_path, template_path, dest_path):
         html_nodes = markdown_to_html_node(contain_from)
         html = html_nodes.to_html()
         title = extract_title(contain_from)
-        html_page = contain_template.replace("{{ Title }}", title).replace("{{ Content }}", html)
+        html_page = contain_template.replace("{{ Title }}", title.strip()).replace("{{ Content }}", html)
         with open(dest_path, "w", encoding="utf-8") as f:
             f.write(html_page)
         print(f"Page generated at {dest_path}")
@@ -69,3 +69,26 @@ def generate_page(from_path, template_path, dest_path):
         raise ValueError(f"Value error: {e}")
     except Exception as e:
         raise Exception(f"An error occurred: {e}")
+
+def generate_pages_recursive(dir_path_content='content', template_path='template.html', dest_dir_path='public', backup_dir=True):
+    """"
+    Generates HTML pages from markdown files in a directory and its subdirectories.
+    :param dir_path_content: Path to the directory containing markdown files
+    :param template_path: Path to the HTML template file
+    :param dest_dir_path: Path to the directory where generated HTML files will be saved
+    """
+    for i in (os.listdir(dir_path_content)):
+        entry = os.path.join(dir_path_content, i)
+        dest = os.path.join(dest_dir_path, i)
+        html_dest = os.path.splitext(dest)[0] + ".html"
+        # Check if the entry is a directory or a markdown file
+        if os.path.isdir(entry):
+            if not os.path.exists(dest):
+                os.makedirs(dest)
+            generate_pages_recursive(entry, template_path, os.path.join(dest_dir_path, i), backup_dir = False)
+            
+        if os.path.isfile(entry) and entry.endswith('.md'):
+            # Generate the page from the markdown file
+            if not os.path.exists(dest_dir_path):
+                os.makedirs(dest_dir_path)
+            generate_page(entry, template_path, html_dest)

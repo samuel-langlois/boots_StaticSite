@@ -18,7 +18,7 @@ def block_to_block_type(text):
         return BlockType.HEADING
     if text.startswith("```") and text.endswith("```"):
         return BlockType.CODE
-    if all(line.startswith("> ")for line in lines):
+    if all(line.startswith(">")for line in lines):
         return BlockType.QUOTE
     if all(line.startswith("- ")for line in lines):
         return BlockType.UNORDERED

@@ -309,6 +309,6 @@ This is another paragraph with _italic_ text and `code` here
     def test_unordered_list(self):  
         text = "- Item 1\n- Item 2"
         self.assertEqual(block_to_block_type(text), BlockType.UNORDERED)
-
+        
 if __name__ == "__main__":
     unittest.main()
