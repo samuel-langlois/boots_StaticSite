@@ -1,0 +1,65 @@
+[33mcommit 0436697c13b926d28e51cb538f91622606f9dd77[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: Samuel Langlois <samuel.j.langlois@gmail.com>
+Date:   Wed Apr 9 09:23:50 2025 -0600
+
+    5.4 Generate pages recursively
+
+[33mcommit cdb984dc335f205df06ae111b091971d1d278867[m
+Author: samuel-langlois <samuel.j.langlois@gmail.com>
+Date:   Tue Mar 25 17:15:50 2025 -0600
+
+    5.2 Generate Page
+
+[33mcommit 98277836a0983152a18aa00d3603d91ea9fccdd1[m
+Author: samuel-langlois <samuel.j.langlois@gmail.com>
+Date:   Thu Mar 20 17:39:44 2025 -0600
+
+    4.3 errors within
+
+[33mcommit 424204cca8a69259b8c20d3c9f967729e73cab9b[m
+Author: samuel-langlois <samuel.j.langlois@gmail.com>
+Date:   Tue Mar 18 15:07:26 2025 -0600
+
+    4.2 Changed methoed orgizanation
+
+[33mcommit 06b77c3bab000ce663f8b3b39882203df89176dc[m
+Author: samuel-langlois <samuel.j.langlois@gmail.com>
+Date:   Wed Mar 12 23:02:48 2025 -0600
+
+    4.2 Block Types
+
+[33mcommit f89049ed593fa2440b165fc75a35a4328e05a676[m
+Author: samuel-langlois <samuel.j.langlois@gmail.com>
+Date:   Wed Mar 12 14:08:19 2025 -0600
+
+    4.1 Split blocks
+
+[33mcommit c5c11e65fd130a0c096f0f50665a800a06f7d415[m
+Author: samuel-langlois <samuel.j.langlois@gmail.com>
+Date:   Tue Mar 11 22:17:47 2025 -0600
+
+    3.7 Text to TextNodes
+
+[33mcommit 4e6e8bf2d025ac87d52909bbd07a797d61b35153[m
+Author: samuel-langlois <samuel.j.langlois@gmail.com>
+Date:   Tue Mar 11 20:30:50 2025 -0600
+
+    3.6 Text to TextNodes
+
+[33mcommit c1762c5b418eafb9d721d1dab19e85fc5d9b8666[m
+Author: samuel-langlois <samuel.j.langlois@gmail.com>
+Date:   Tue Mar 11 14:49:36 2025 -0600
+
+    3.5 completed split methods
+
+[33mcommit aabc7736649a502df65f01ea0fee54710a68c827[m
+Author: samuel-langlois <samuel.j.langlois@gmail.com>
+Date:   Tue Mar 11 14:27:56 2025 -0600
+
+    Added methods and tests for textnode
+
+[33mcommit 1865656ad1afcd08fe1d20edff566ac0521995f9[m
+Author: samuel-langlois <samuel.j.langlois@gmail.com>
+Date:   Thu Mar 6 17:26:13 2025 -0700
+
+    3.4 Extract images and links
