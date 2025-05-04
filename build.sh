@@ -1,0 +1,1 @@
+python3 src/main.py "/https://github.com/samuel-langlois/boots_StaticSite/"
