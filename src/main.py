@@ -1,15 +1,11 @@
 from generatepub import generate_page, generate_pages_recursive, generate_public
-import os
+import os, sys
 
 def main():
-    generate_pages_recursive(backup_dir=False)
-    
-    """
-    generate_public(backup_dir=False)
-    if os.path.exists("content/index.md"):
-        generate_page("content/index.md", "template.html", "public/index.html")
-    else:
-        print("File not found: content/index.md")"""
+    basepath = sys.argv[1] if len(sys.argv) > 1 else "/"
+    print(f"Generating pages for basepath: {basepath}")
+    generate_pages_recursive(basepath=basepath, dest_dir_path='docs')
+
 
 if __name__ == "__main__":
     main()
